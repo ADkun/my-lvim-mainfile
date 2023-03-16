@@ -12,7 +12,7 @@ function M.config()
     ---@usage disable telescope completely [not recommended]
     active = true,
     on_config_done = nil,
-    theme = "dropdown", ---@type telescope_themes
+    theme = "center", ---@type telescope_themes
     defaults = {
       prompt_prefix = lvim.icons.ui.Telescope .. " ",
       selection_caret = lvim.icons.ui.Forward .. " ",
@@ -20,8 +20,11 @@ function M.config()
       initial_mode = "insert",
       selection_strategy = "reset",
       sorting_strategy = nil,
-      layout_strategy = nil,
-      layout_config = {},
+      layout_strategy = "vertical",
+      layout_config = {
+        height = 0.99,
+        width = 0.99,
+      },
       vimgrep_arguments = {
         "rg",
         "--color=never",
@@ -58,7 +61,7 @@ function M.config()
       },
       file_ignore_patterns = {},
       path_display = { "smart" },
-      winblend = 0,
+      winblend = 20,
       border = {},
       borderchars = nil,
       color_devicons = true,
@@ -76,7 +79,7 @@ function M.config()
         only_sort_text = true,
       },
       buffers = {
-        initial_mode = "normal",
+        initial_mode = "insert",
         mappings = {
           i = {
             ["<C-d>"] = actions.delete_buffer,

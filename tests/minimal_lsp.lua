@@ -87,7 +87,7 @@ _G.load_config = function()
 
   nvim_lsp[name].setup(setup_opts)
   if use_lsp_installer then
-    require("mason-lspconfig").setup { automatic_installation = true }
+    require("mason-lspconfig").setup { automatic_installation = false }
   end
 
   print [[You can find your log at $HOME/.cache/nvim/lsp.log. Please paste in a github issue under a details tag as described in the issue template.]]

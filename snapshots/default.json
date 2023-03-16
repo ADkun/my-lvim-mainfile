@@ -47,9 +47,6 @@
   "lualine.nvim": {
     "commit": "e99d733"
   },
-  "lunar.nvim": {
-    "commit": "29eedf7"
-  },
   "mason-lspconfig.nvim": {
     "commit": "a31e011"
   },
@@ -95,9 +92,6 @@
   "nvim-web-devicons": {
     "commit": "4af94fe"
   },
-  "onedarker.nvim": {
-    "commit": "b00dd21"
-  },
   "plenary.nvim": {
     "commit": "253d348"
   },
@@ -121,9 +115,6 @@
   },
   "toggleterm.nvim": {
     "commit": "31d38d1"
-  },
-  "tokyonight.nvim": {
-    "commit": "3ebc29d"
   },
   "vim-illuminate": {
     "commit": "49062ab"

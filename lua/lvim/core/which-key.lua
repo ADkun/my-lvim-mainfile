@@ -137,6 +137,11 @@ M.config = function()
           "<cmd>BufferLineSortByExtension<cr>",
           "Sort by language",
         },
+        m = {
+          name = "+Move",
+          h = { "<cmd>BufferLineMovePrev<cr>", "Move Prev" },
+          l = { "<cmd>BufferLineMoveNext<cr>", "Move Next" },
+        },
       },
       d = {
         name = "Debug",
@@ -285,6 +290,7 @@ M.config = function()
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
+        s = { "<cmd>Telescope grep_string<cr>", "Telescope Grep String" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         l = { "<cmd>Telescope resume<cr>", "Resume last search" },

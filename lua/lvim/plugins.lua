@@ -4,7 +4,11 @@ local core_plugins = {
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    dependencies = { "mason-lspconfig.nvim", "nlsp-settings.nvim" },
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    dependencies = {
+      "mason-lspconfig.nvim",
+      "nlsp-settings.nvim",
+    },
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -29,14 +33,6 @@ local core_plugins = {
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     lazy = true,
   },
-  {
-    "folke/tokyonight.nvim",
-    lazy = not vim.startswith(lvim.colorscheme, "tokyonight"),
-  },
-  {
-    "lunarvim/lunar.nvim",
-    lazy = lvim.colorscheme ~= "lunar",
-  },
   { "Tastyep/structlog.nvim", lazy = true },
 
   { "nvim-lua/popup.nvim", lazy = true },
@@ -57,6 +53,7 @@ local core_plugins = {
   -- Install nvim-cmp, and buffer source as a dependency
   {
     "hrsh7th/nvim-cmp",
+    lazy = true,
     config = function()
       if lvim.builtin.cmp then
         require("lvim.core.cmp").setup()
@@ -82,6 +79,7 @@ local core_plugins = {
   },
   {
     "L3MON4D3/LuaSnip",
+    lazy = true,
     config = function()
       local utils = require "lvim.utils"
       local paths = {}
@@ -112,6 +110,7 @@ local core_plugins = {
   -- Autopairs
   {
     "windwp/nvim-autopairs",
+    lazy = true,
     event = "InsertEnter",
     config = function()
       require("lvim.core.autopairs").setup()
@@ -123,6 +122,7 @@ local core_plugins = {
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = true,
     -- run = ":TSUpdate",
     config = function()
       local utils = require "lvim.utils"
@@ -150,16 +150,25 @@ local core_plugins = {
   -- NvimTree
   {
     "kyazdani42/nvim-tree.lua",
+    lazy = true,
     config = function()
       require("lvim.core.nvimtree").setup()
     end,
     enabled = lvim.builtin.nvimtree.active,
-    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    cmd = {
+      "NvimTreeToggle",
+      "NvimTreeOpen",
+      "NvimTreeFocus",
+      "NvimTreeFindFileToggle",
+      "NvimTreeFindFile",
+      "NvimTreeRefresh",
+    },
     event = "User DirOpened",
   },
   -- Lir
   {
     "tamago324/lir.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.lir").setup()
     end,
@@ -168,6 +177,7 @@ local core_plugins = {
   },
   {
     "lewis6991/gitsigns.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.gitsigns").setup()
     end,
@@ -179,6 +189,7 @@ local core_plugins = {
   -- Whichkey
   {
     "folke/which-key.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.which-key").setup()
     end,
@@ -190,6 +201,7 @@ local core_plugins = {
   -- Comments
   {
     "numToStr/Comment.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.comment").setup()
     end,
@@ -201,6 +213,7 @@ local core_plugins = {
   -- project.nvim
   {
     "ahmedkhalf/project.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.project").setup()
     end,
@@ -220,17 +233,19 @@ local core_plugins = {
   {
     -- "hoob3rt/lualine.nvim",
     "nvim-lualine/lualine.nvim",
+    lazy = true,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     -- "Lunarvim/lualine.nvim",
     config = function()
       require("lvim.core.lualine").setup()
     end,
-    event = "VimEnter",
     enabled = lvim.builtin.lualine.active,
   },
 
   -- breadcrumbs
   {
     "SmiteshP/nvim-navic",
+    lazy = true,
     config = function()
       require("lvim.core.breadcrumbs").setup()
     end,
@@ -240,6 +255,7 @@ local core_plugins = {
 
   {
     "akinsho/bufferline.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.bufferline").setup()
     end,
@@ -281,6 +297,7 @@ local core_plugins = {
   -- Terminal
   {
     "akinsho/toggleterm.nvim",
+    lazy = true,
     branch = "main",
     init = function()
       require("lvim.core.terminal").init()
@@ -308,6 +325,7 @@ local core_plugins = {
 
   {
     "RRethy/vim-illuminate",
+    lazy = true,
     config = function()
       require("lvim.core.illuminate").setup()
     end,
@@ -317,6 +335,7 @@ local core_plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    lazy = true,
     config = function()
       require("lvim.core.indentlines").setup()
     end,
@@ -325,21 +344,8 @@ local core_plugins = {
   },
 
   {
-    "lunarvim/onedarker.nvim",
-    branch = "freeze",
-    config = function()
-      pcall(function()
-        if lvim and lvim.colorscheme == "onedarker" then
-          require("onedarker").setup()
-          lvim.builtin.lualine.options.theme = "onedarker"
-        end
-      end)
-    end,
-    lazy = lvim.colorscheme ~= "onedarker",
-  },
-
-  {
     "lunarvim/bigfile.nvim",
+    lazy = true,
     config = function()
       pcall(function()
         require("bigfile").config(lvim.builtin.bigfile.config)
