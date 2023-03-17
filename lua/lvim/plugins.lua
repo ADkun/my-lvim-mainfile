@@ -66,7 +66,23 @@ local core_plugins = {
       "cmp-buffer",
       "cmp-path",
       "cmp-cmdline",
+      "lukas-reineke/cmp-under-comparator",
+      "f3fora/cmp-spell",
+      "ray-x/cmp-treesitter",
     },
+  },
+  { "lukas-reineke/cmp-under-comparator", lazy = true },
+  {
+    "f3fora/cmp-spell",
+    lazy = true,
+    config = function()
+      vim.opt.spell = true
+      vim.opt.spelllang:append "en_us"
+    end,
+  },
+  {
+    "ray-x/cmp-treesitter",
+    lazy = true,
   },
   { "hrsh7th/cmp-nvim-lsp", lazy = true },
   { "saadparwaiz1/cmp_luasnip", lazy = true },
