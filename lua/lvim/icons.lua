@@ -143,7 +143,9 @@ return {
     Trace = "✎",
   },
   misc = {
-    Robot = "ﮧ",
+    -- FIX: The Robot icon may cause problem aligning
+    -- Robot = "ﮧ",
+    Robot = "󱚣",
     Squirrel = "",
     Tag = "",
     Watch = "",
