@@ -234,7 +234,7 @@ local core_plugins = {
       require("lvim.core.project").setup()
     end,
     enabled = lvim.builtin.project.active,
-    event = "VimEnter",
+    event = "VeryLazy",
     cmd = "Telescope projects",
   },
 
