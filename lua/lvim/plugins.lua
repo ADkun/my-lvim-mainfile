@@ -155,7 +155,7 @@ local core_plugins = {
       "TSInstallSync",
       "TSInstallFromGrammar",
     },
-    event = "User FileOpened",
+    event = "BufRead",
   },
   {
     -- Lazy loaded by Comment.nvim pre_hook
@@ -197,7 +197,7 @@ local core_plugins = {
     config = function()
       require("lvim.core.gitsigns").setup()
     end,
-    event = "User FileOpened",
+    event = "BufRead",
     cmd = "Gitsigns",
     enabled = lvim.builtin.gitsigns.active,
   },
@@ -222,7 +222,7 @@ local core_plugins = {
       require("lvim.core.comment").setup()
     end,
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
-    event = "User FileOpened",
+    event = "BufRead",
     enabled = lvim.builtin.comment.active,
   },
 
@@ -265,7 +265,7 @@ local core_plugins = {
     config = function()
       require("lvim.core.breadcrumbs").setup()
     end,
-    event = "User FileOpened",
+    event = "BufRead",
     enabled = lvim.builtin.breadcrumbs.active,
   },
 
@@ -276,7 +276,7 @@ local core_plugins = {
       require("lvim.core.bufferline").setup()
     end,
     branch = "main",
-    event = "User FileOpened",
+    event = "BufRead",
     enabled = lvim.builtin.bufferline.active,
   },
 
@@ -345,7 +345,7 @@ local core_plugins = {
     config = function()
       require("lvim.core.illuminate").setup()
     end,
-    event = "User FileOpened",
+    event = "BufRead",
     enabled = lvim.builtin.illuminate.active,
   },
 
@@ -355,7 +355,7 @@ local core_plugins = {
     config = function()
       require("lvim.core.indentlines").setup()
     end,
-    event = "User FileOpened",
+    event = "BufRead",
     enabled = lvim.builtin.indentlines.active,
   },
 
@@ -368,7 +368,7 @@ local core_plugins = {
       end)
     end,
     enabled = lvim.builtin.bigfile.active,
-    event = { "FileReadPre", "BufReadPre", "User FileOpened" },
+    event = { "FileReadPre", "BufReadPre" },
   },
 }
 
