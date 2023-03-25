@@ -17,9 +17,6 @@
   "cmp-buffer": {
     "commit": "3022dbc"
   },
-  "cmp-cmdline": {
-    "commit": "8fcc934"
-  },
   "cmp-nvim-lsp": {
     "commit": "0e6b2ed"
   },

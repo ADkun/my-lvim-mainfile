@@ -65,21 +65,10 @@ local core_plugins = {
       "cmp_luasnip",
       "cmp-buffer",
       "cmp-path",
-      "cmp-cmdline",
-      "lukas-reineke/cmp-under-comparator",
-      "f3fora/cmp-spell",
       "ray-x/cmp-treesitter",
     },
   },
   { "lukas-reineke/cmp-under-comparator", lazy = true },
-  {
-    "f3fora/cmp-spell",
-    lazy = true,
-    config = function()
-      vim.opt.spell = true
-      vim.opt.spelllang:append "en_us"
-    end,
-  },
   {
     "ray-x/cmp-treesitter",
     lazy = true,
@@ -88,11 +77,6 @@ local core_plugins = {
   { "saadparwaiz1/cmp_luasnip", lazy = true },
   { "hrsh7th/cmp-buffer", lazy = true },
   { "hrsh7th/cmp-path", lazy = true },
-  {
-    "hrsh7th/cmp-cmdline",
-    lazy = true,
-    enabled = lvim.builtin.cmp and lvim.builtin.cmp.cmdline.enable or false,
-  },
   {
     "L3MON4D3/LuaSnip",
     lazy = true,
