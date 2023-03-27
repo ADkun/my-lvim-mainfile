@@ -47,14 +47,7 @@ M.config = function()
     keymap = {
       normal_mode = {},
     },
-    highlights = {
-      background = {
-        italic = true,
-      },
-      buffer_selected = {
-        bold = true,
-      },
-    },
+    highlights = require("catppuccin.groups.integrations.bufferline").get(),
     options = {
       mode = "buffers", -- set to "tabs" to only show tabpages instead
       numbers = "none", -- can be "none" | "ordinal" | "buffer_id" | "both" | function

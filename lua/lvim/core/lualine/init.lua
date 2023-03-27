@@ -7,7 +7,7 @@ M.config = function()
       icons_enabled = nil,
       component_separators = nil,
       section_separators = nil,
-      theme = nil,
+      theme = "catppuccin",
       disabled_filetypes = { statusline = { "alpha" } },
       globalstatus = true,
     },
