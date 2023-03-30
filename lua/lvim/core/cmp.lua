@@ -129,6 +129,7 @@ M.config = function()
   local luasnip = require("lvim.utils.modules").require_on_index "luasnip"
   local cmp_window = require "cmp.config.window"
   local cmp_mapping = require "cmp.config.mapping"
+  local compare = require "cmp.config.compare"
 
   lvim.builtin.cmp = {
     active = true,
@@ -224,6 +225,20 @@ M.config = function()
       completion = cmp_window.bordered(),
       documentation = cmp_window.bordered(),
     },
+    sorting = {
+      priority_weight = 2,
+      comparators = {
+        require "cmp_tabnine.compare",
+        compare.offset,
+        compare.exact,
+        compare.score,
+        compare.recently_used,
+        compare.kind,
+        compare.sort_text,
+        compare.length,
+        compare.order,
+      },
+    },
     sources = {
       {
         name = "copilot",
@@ -271,7 +286,7 @@ M.config = function()
 
       { name = "path" },
       { name = "luasnip" },
-      -- { name = "cmp_tabnine" },
+      { name = "cmp_tabnine" },
       { name = "nvim_lua" },
       {
         name = "buffer",
