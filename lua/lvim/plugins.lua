@@ -65,8 +65,33 @@ local core_plugins = {
       "cmp_luasnip",
       "cmp-buffer",
       "cmp-path",
+      "cmp-tabnine",
       "ray-x/cmp-treesitter",
     },
+  },
+  {
+    "tzachar/cmp-tabnine",
+    build = "./install.sh",
+    lazy = true,
+    event = "InsertEnter",
+    dependencies = "hrsh7th/nvim-cmp",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 3,
+        sort = true,
+        run_on_every_keystroke = true,
+        snippet_placeholder = "~",
+        ignored_file_types = {},
+        show_prediction_strength = false,
+      }
+    end,
+  },
+  {
+    "HiPhish/nvim-ts-rainbow2",
+    lazy = true,
+    event = { "BufRead", "BufNewFile" },
   },
   { "lukas-reineke/cmp-under-comparator", lazy = true },
   {
